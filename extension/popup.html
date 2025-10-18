@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Page Fluent Capture</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+  <body>
+    <div class="app" data-theme="dark">
+      <header class="app__header">
+        <div class="app__title">
+          <span class="app__dot"></span>
+          <h1>Fluent Capture</h1>
+        </div>
+        <button class="icon-button" id="settingsButton" aria-label="Ustawienia">
+          <span class="icon icon-gear"></span>
+        </button>
+      </header>
+      <main class="app__content">
+        <section class="block">
+          <h2>Zakres</h2>
+          <div class="slider-group">
+            <label for="topOffset">Margines górny</label>
+            <input type="range" id="topOffset" min="0" max="2000" value="0" />
+            <span class="value" id="topValue">0 px</span>
+          </div>
+          <div class="slider-group">
+            <label for="bottomOffset">Margines dolny</label>
+            <input type="range" id="bottomOffset" min="0" max="2000" value="0" />
+            <span class="value" id="bottomValue">0 px</span>
+          </div>
+        </section>
+        <section class="block">
+          <h2>Kompresja</h2>
+          <label class="toggle">
+            <input type="checkbox" id="compressionToggle" checked />
+            <span class="toggle__track"></span>
+            <span class="toggle__label" id="compressionLabel">Włączona</span>
+          </label>
+          <div class="slider-group" id="compressionGroup">
+            <label for="compressionLevel">Poziom</label>
+            <input type="range" id="compressionLevel" min="60" max="100" value="85" />
+            <span class="value" id="compressionValue">85%</span>
+          </div>
+        </section>
+      </main>
+      <footer class="app__footer">
+        <button id="saveButton" class="primary">Zapisz</button>
+        <button id="clipboardButton" class="secondary">Schowek</button>
+      </footer>
+      <div class="notification" id="notification" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="settings" id="settingsPanel" hidden>
+      <div class="settings__header">
+        <h2>Ustawienia</h2>
+        <button class="icon-button" id="closeSettings" aria-label="Zamknij">
+          <span class="icon icon-close"></span>
+        </button>
+      </div>
+      <div class="settings__content">
+        <div class="field">
+          <label for="accentColor">Kolor akcentu</label>
+          <input type="color" id="accentColor" value="#7F00FF" />
+        </div>
+        <div class="field">
+          <label class="toggle">
+            <input type="checkbox" id="debugToggle" />
+            <span class="toggle__track"></span>
+            <span class="toggle__label">Tryb debugowania</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="settings-backdrop" id="settingsBackdrop" hidden></div>
+
+    <script type="module" src="scripts/popup.js"></script>
+  </body>
+</html>
